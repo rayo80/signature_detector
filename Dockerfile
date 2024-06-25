@@ -5,7 +5,9 @@ ENV PATH /env/bin:$PATH
 
 RUN apt-get update && \
     apt-get install -y libgl1-mesa-glx \
-RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+    apt-get update && apt-get install libgl1
+
+RUN apt update && apt install -y ffmpeg libsm6 libxext6
 
 ADD requirements.txt /app/requirements.txt
 RUN pip install --upgrade pip && pip install -r /app/requirements.txt
